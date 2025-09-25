@@ -19,26 +19,43 @@ namespace Form1
         }
         private void button1Calculate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var operand1 = short.Parse(textBox1.Text);
-                decimal operand2 = decimal.Parse(textBox2.Text);
-                string operation = textBox3.Text.Trim();
-
-                decimal result = 0;
-
-                result = operation == "+" ? operand1 + operand2 :
-                         operation == "-" ? operand1 - operand2 :
-                         operation == "*" ? operand1 * operand2 :
-                         operation == "/" ? operand1 / operand2 :
-                         throw new ArgumentException("Неизвестная операция");
-
-                label1.Text = result.ToString();
+           
+          
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            this.Text = $"short: {short.MinValue}..{short.MaxValue}, размер: {sizeof(short)} байт | " +
+                       $"decimal: {decimal.MinValue}..{decimal.MaxValue}, размер: {sizeof(decimal)} байт";
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var operand1 = short.Parse(textBox1.Text);
+            decimal operand2 = decimal.Parse(textBox2.Text);
+            string operation = textBox3.Text.Trim();
+
+            decimal result = 0;
+
+            result = operation == "+" ? operand1 + operand2 :
+                     operation == "-" ? operand1 - operand2 :
+                     operation == "*" ? operand1 * operand2 :
+                     operation == "/" ? operand1 / operand2 :
+                     throw new ArgumentException("Неизвестная операция");
+
+            label1.Text = result.ToString();
+        
     }
-}
+    }
+    }
